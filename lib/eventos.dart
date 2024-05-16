@@ -2,11 +2,27 @@ import 'dart:html';
 import 'package:aplicacao_spfashion/sobre_evento.dart';
 import 'package:flutter/material.dart';
 
+class Evento {
+  final String titulo;
+  final String descricao;
+  final String dataInicial;
+  final String dataFinal;
+  final String local;
 
+  // Construtor
+  const Evento(this.titulo, this.descricao, this.dataInicial, this.dataFinal, this.local);
+}
 void eventos() => runApp(const Eventos());
 
 class Eventos extends StatelessWidget {
   const Eventos({Key? key}) : super(key: key); // Correção: Adicionado o parâmetro 'key' e seu uso corretamente
+  
+  // Variaveis locais  para receber o texto
+  String titulo = '';
+  String descricao = '';
+  String dataInicial = '';
+  String dataFinal = '';
+  String local = '';
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +74,7 @@ class Eventos extends StatelessWidget {
                     context,
                     MaterialPageRoute(builder:
                        (context) => Sobre()));
-                  },
+                  }, // Passa as informações
                   child: Container(
                     padding: const EdgeInsets.all(20),
                     margin: const EdgeInsets.symmetric(horizontal: 30),
