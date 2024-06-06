@@ -1,28 +1,18 @@
-import 'dart:html';
+import 'package:aplicacao_spfashion/eventosClass.dart';
 import 'package:aplicacao_spfashion/sobre_evento.dart';
 import 'package:flutter/material.dart';
 
-class Evento {
-  final String titulo;
-  final String descricao;
-  final String dataInicial;
-  final String dataFinal;
-  final String local;
 
-  // Construtor
-  const Evento(this.titulo, this.descricao, this.dataInicial, this.dataFinal, this.local);
-}
-void eventos() => runApp(const Eventos());
+void eventos() => runApp(Eventos());
 
+// ignore: must_be_immutable
 class Eventos extends StatelessWidget {
-  const Eventos({Key? key}) : super(key: key); // Correção: Adicionado o parâmetro 'key' e seu uso corretamente
+   Eventos({super.key}); // Correção: Adicionado o parâmetro 'key' e seu uso corretamente
   
   // Variaveis locais  para receber o texto
   String titulo = '';
   String descricao = '';
-  String dataInicial = '';
-  String dataFinal = '';
-  String local = '';
+
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +30,7 @@ class Eventos extends StatelessWidget {
             
             const SizedBox(height: 30),
             Row( children: [
-              SizedBox(width: 15,),
+              const SizedBox(width: 15,),
               MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector( onTap: () {
@@ -67,13 +57,26 @@ class Eventos extends StatelessWidget {
             ),
             ],),
             
+
             const SizedBox(height: 30,),
                GestureDetector(
                   onTap: () {
+                    titulo = 'São Paulo Fashion Week';
+                    descricao = 'A Fashion Week é um momento emocionante na indústria da moda, onde os designers apresentam suas últimas coleções em desfiles extravagantes. É um evento movimentado, cheio de criatividade, estilo e glamour. Modelos desfilam pela passarela, exibindo designs vanguardistas e estabelecendo novas tendências para a próxima temporada. '
+                    'A Fashion Week não se trata apenas de roupas; é uma celebração da arte, inovação e autoexpressão. Da primeira fila aos bastidores, a energia é palpável à medida que entusiastas da moda, celebridades e membros da indústria se reúnem para testemunhar a magia da Fashion Week. É uma época em que o mundo da moda brilha intensamente, inspirando-nos a todos a abraçar o nosso estilo e criatividade únicos.';
+
+                    // Transição para tela de eventos
+                    Evento evento =  Evento(titulo, descricao);
+
                     Navigator.push(
                     context,
                     MaterialPageRoute(builder:
-                       (context) => Sobre()));
+                       (context) => Sobre(),
+                       //adiciona os parametros 
+                       settings: RouteSettings(
+                        arguments: evento,
+                       ),
+                       ));
                   }, // Passa as informações
                   child: Container(
                     padding: const EdgeInsets.all(20),
@@ -130,7 +133,7 @@ class Eventos extends StatelessWidget {
               width: double.infinity,
               height: 140,
               decoration: BoxDecoration(
-                gradient: LinearGradient(colors:  [Color.fromARGB(255, 192, 115, 255), Color.fromARGB(255, 255, 190, 115), Color.fromARGB(172, 255, 218, 218)]),
+                gradient: const LinearGradient(colors:  [Color.fromARGB(255, 192, 115, 255), Color.fromARGB(255, 255, 190, 115), Color.fromARGB(172, 255, 218, 218)]),
                 borderRadius: BorderRadius.circular(25),
                 boxShadow: const [
                   BoxShadow(
@@ -140,6 +143,8 @@ class Eventos extends StatelessWidget {
                   )
                 ],
               ),
+
+              
                child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -172,7 +177,7 @@ class Eventos extends StatelessWidget {
               width: double.infinity,
               height: 140,
               decoration: BoxDecoration(
-                gradient: LinearGradient(colors:  [Color.fromARGB(255, 192, 115, 255), Color.fromARGB(255, 255, 190, 115), Color.fromARGB(172, 255, 218, 218)]),
+                gradient: const LinearGradient(colors:  [Color.fromARGB(255, 192, 115, 255), Color.fromARGB(255, 255, 190, 115), Color.fromARGB(172, 255, 218, 218)]),
                 borderRadius: BorderRadius.circular(25),
                 boxShadow: const [
                   BoxShadow(
@@ -214,7 +219,7 @@ class Eventos extends StatelessWidget {
               width: double.infinity,
               height: 140,
               decoration: BoxDecoration(
-                gradient: LinearGradient(colors:  [Color.fromARGB(255, 192, 115, 255), Color.fromARGB(255, 255, 190, 115), Color.fromARGB(172, 255, 218, 218)]),
+                gradient: const LinearGradient(colors:  [Color.fromARGB(255, 192, 115, 255), Color.fromARGB(255, 255, 190, 115), Color.fromARGB(172, 255, 218, 218)]),
                 borderRadius: BorderRadius.circular(25),
                 boxShadow: const [
                   BoxShadow(

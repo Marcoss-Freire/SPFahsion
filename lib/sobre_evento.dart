@@ -1,11 +1,13 @@
+import 'package:aplicacao_spfashion/eventos.dart';
+import 'package:aplicacao_spfashion/eventosClass.dart';
 import 'package:flutter/material.dart';
-import 'package:aplicacao_spfashion/sobre_evento.dart';
 
-void eventos() => runApp(Sobre());
+//void eventos() => runApp(Sobre());
 
 class Sobre extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+    final evento = ModalRoute.of(context)!.settings.arguments as Evento;
     return Scaffold(
       body:Container(
         decoration: const BoxDecoration(
@@ -39,9 +41,9 @@ class Sobre extends StatelessWidget{
                   ],
                 ),)
               ),
-           const Text(
-              'São Paulo Fashion Week',
-              style: TextStyle(
+            Text(
+              evento.titulo,
+              style: const TextStyle(
                 fontFamily: 'Chloe',
                 fontSize: 30,
                 color: Color.fromARGB(255, 2, 0, 53),
@@ -74,16 +76,14 @@ class Sobre extends StatelessWidget{
           ],
         ),
         const SizedBox(height: 10,),
-        const Text('    A Fashion Week é um momento emocionante na indústria da moda, onde os designers apresentam suas últimas coleções em desfiles extravagantes. É um evento movimentado, cheio de criatividade, estilo e glamour. Modelos desfilam pela passarela, exibindo designs vanguardistas e estabelecendo novas tendências para a próxima temporada. '
-     'A Fashion Week não se trata apenas de roupas; é uma celebração da arte, inovação e autoexpressão. Da primeira fila aos bastidores, a energia é palpável à medida que entusiastas da moda, celebridades e membros da indústria se reúnem para testemunhar a magia da Fashion Week. É uma época em que o mundo da moda brilha intensamente, inspirando-nos a todos a abraçar o nosso estilo e criatividade únicos.',
-    textAlign: TextAlign.justify,
+        Text(
+          evento.descricao,
+          textAlign: TextAlign.justify,
     
-     style: TextStyle(
-      fontFamily: 'Glacial',
-      fontSize: 20,
-    
-      
-     ),),
+          style: const TextStyle(
+          fontFamily: 'Glacial',
+          fontSize: 20,
+          ),),
     const SizedBox(height: 10,),
       GestureDetector( onTap: () {
                   // Voltar para a tela anterior

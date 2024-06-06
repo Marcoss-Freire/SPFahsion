@@ -94,21 +94,8 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
-  - assets/imgs/fungo_colorido.png
-  - assets/imgs/seta.png
-  - assets/imgs/fundo_sobreoevento.png
-  - assets/imgs/estrelinha.png
-  - assets/imgs/brilho.png
-  - assets/imgs/1.png
-  - assets/imgs/2.png
-  - assets/imgs/imgquiz.png
-  - assets/imgs/vermais.png
-  - assets/imgs/imagem1.png
-  - assets/imgs/imagem2.png
-  - assets/imgs/imagem3.png
-  - assets/imgs/imagem4.png
-  - assets/imgs/imagem5.png
-  - assets/imgs/fundo_menu.png
+    - assets/
+    - assets/imgs/
 
 
 

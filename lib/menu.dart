@@ -1,20 +1,20 @@
 import 'package:aplicacao_spfashion/eventos.dart';
+import 'package:aplicacao_spfashion/eventosClass.dart';
 import 'package:aplicacao_spfashion/sobre_evento.dart';
 import 'package:flutter/material.dart';
 
+
 void menu() {
-    @override
-    Widget build(BuildContext context) {
-    return const MaterialApp(
-      
-      home: Menu()
-    );
-  }
-    runApp(const Menu());
+    runApp(Menu());
 }
 
 class Menu extends StatelessWidget {
-    const Menu({super.key});
+    Menu({super.key});
+
+    //variaveis locais para receber o texto
+    String titulo = '';
+    String descricao = '';
+
 
     @override
     Widget build(BuildContext context) {
@@ -68,7 +68,7 @@ class Menu extends StatelessWidget {
                                           MaterialPageRoute(builder: (context) => Eventos())
                                         );
                                       },
-                                      child: Container(
+                                      child: SizedBox(
                                         width: 70,
                                         height: 70,
                                         child: Image.asset(
@@ -81,14 +81,28 @@ class Menu extends StatelessWidget {
                                   const SizedBox(width: 10), // Espaço entre os elementos
                                   GestureDetector(
                                     onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Sobre()),
-                                      );
+                                      
+                                     titulo = 'São Paulo Fashion Week';
+                    descricao = 'A Fashion Week é um momento emocionante na indústria da moda, onde os designers apresentam suas últimas coleções em desfiles extravagantes. É um evento movimentado, cheio de criatividade, estilo e glamour. Modelos desfilam pela passarela, exibindo designs vanguardistas e estabelecendo novas tendências para a próxima temporada. '
+                    'A Fashion Week não se trata apenas de roupas; é uma celebração da arte, inovação e autoexpressão. Da primeira fila aos bastidores, a energia é palpável à medida que entusiastas da moda, celebridades e membros da indústria se reúnem para testemunhar a magia da Fashion Week. É uma época em que o mundo da moda brilha intensamente, inspirando-nos a todos a abraçar o nosso estilo e criatividade únicos.';
+
+                    // Transição para tela de eventos
+                    Evento evento =  Evento(titulo, descricao);
+
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder:
+                       (context) => Sobre(),
+                       //adiciona os parametros 
+                       settings: RouteSettings(
+                        arguments: evento,
+                       ),
+                       ));
+                                      
                                     },
                                     child: Container(
                                       width: 360,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         gradient: LinearGradient(
                                           colors: [
                                             Color.fromARGB(255, 192, 115, 255),
@@ -103,8 +117,8 @@ class Menu extends StatelessWidget {
                                           bottomLeft: Radius.circular(30.0),
                                         ),
                                       ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(16.0),
+                                      child: const Padding(
+                                        padding: EdgeInsets.all(16.0),
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
@@ -217,7 +231,7 @@ class Menu extends StatelessWidget {
                                 child: MaterialButton(
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                                 disabledColor: Colors.grey,
-                                color: Color.fromARGB(255, 225, 160, 255),
+                                color: const Color.fromARGB(255, 225, 160, 255),
                                child: Row(
                                  children:[ Container(
                                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -231,7 +245,7 @@ class Menu extends StatelessWidget {
                                  Navigator.push(
                                     context,
                                     MaterialPageRoute(builder:
-                                    (context) => const Menu()),
+                                    (context) => Menu()),
                                  );
                                         },
                             ),
