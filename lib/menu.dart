@@ -14,6 +14,7 @@ class Menu extends StatelessWidget {
     //variaveis locais para receber o texto
     String titulo = '';
     String descricao = '';
+    String  data= '';
 
 
     @override
@@ -87,7 +88,7 @@ class Menu extends StatelessWidget {
                     'A Fashion Week não se trata apenas de roupas; é uma celebração da arte, inovação e autoexpressão. Da primeira fila aos bastidores, a energia é palpável à medida que entusiastas da moda, celebridades e membros da indústria se reúnem para testemunhar a magia da Fashion Week. É uma época em que o mundo da moda brilha intensamente, inspirando-nos a todos a abraçar o nosso estilo e criatividade únicos.';
 
                     // Transição para tela de eventos
-                    Evento evento =  Evento(titulo, descricao);
+                    Evento evento =  Evento(titulo, descricao,data);
 
                     Navigator.push(
                     context,

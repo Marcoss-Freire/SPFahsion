@@ -1,4 +1,4 @@
-import 'package:aplicacao_spfashion/eventos.dart';
+
 import 'package:aplicacao_spfashion/eventosClass.dart';
 import 'package:flutter/material.dart';
 
@@ -89,27 +89,43 @@ class Sobre extends StatelessWidget{
                   // Voltar para a tela anterior
                 },
               
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Image.asset('assets/imgs/1.png', width: 400, fit: BoxFit.contain,),
-                    
-                  ],
+              //Calendario 
+                child: Container(width: 380,height: 140,
+                  decoration: const BoxDecoration(
+                  image: DecorationImage(alignment: Alignment.center,
+                    image: AssetImage('assets/imgs/1.png'),
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                 child:  Padding(padding: EdgeInsets.fromLTRB(150, 60, 60, 0),child: 
+                  Text ( evento.data,
+                    style  : TextStyle(
+                       fontFamily: 'Glacial',
+                          fontSize: 18,
+                          color: Color.fromARGB(255, 10, 10, 10),
+                        ),),)
                 ),),
-              
-        
+               const SizedBox(height: 10,),
       GestureDetector( onTap: () {
                   // Voltar para a tela anterior
-                  
                 },
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Image.asset('assets/imgs/2.png', width: 400, fit: BoxFit.contain,),
-                    
-                  ],
+              
+              //Calendario 2
+                child: Container(width: 480,height: 180,
+                  decoration: const BoxDecoration(
+                  image: DecorationImage(alignment: Alignment.center,
+                    image: AssetImage('assets/imgs/2.png'),
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                 child: const Padding(padding: EdgeInsets.fromLTRB(160, 65, 0, 0),child: 
+                  Text ('Qualquer coisa',
+                    style  : TextStyle(
+                          fontFamily: 'Glacial',
+                          fontSize: 18,
+                          color: Color.fromARGB(255, 10, 10, 10),
+                        ),),)
                 ),),
-  
         ],),),),),],),
       ),
     );

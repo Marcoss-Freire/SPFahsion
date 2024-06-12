@@ -11,6 +11,7 @@ class Eventos extends StatelessWidget {
   // Variaveis locais  para receber o texto
   String titulo = '';
   String descricao = '';
+  String data ='';
 
   @override
   Widget build(BuildContext context) {
@@ -62,9 +63,9 @@ class Eventos extends StatelessWidget {
                     titulo = 'São Paulo Fashion Week';
                     descricao = 'A Fashion Week é um momento emocionante na indústria da moda, onde os designers apresentam suas últimas coleções em desfiles extravagantes. É um evento movimentado, cheio de criatividade, estilo e glamour. Modelos desfilam pela passarela, exibindo designs vanguardistas e estabelecendo novas tendências para a próxima temporada. '
                     'A Fashion Week não se trata apenas de roupas; é uma celebração da arte, inovação e autoexpressão. Da primeira fila aos bastidores, a energia é palpável à medida que entusiastas da moda, celebridades e membros da indústria se reúnem para testemunhar a magia da Fashion Week. É uma época em que o mundo da moda brilha intensamente, inspirando-nos a todos a abraçar o nosso estilo e criatividade únicos.';
-
+                     data = '22 a 28 de maio de 2023';
                     // Transição para tela de eventos
-                    Evento evento =  Evento(titulo, descricao);
+                    Evento evento =  Evento(titulo, descricao,data);
 
                     Navigator.push(
                     context,
@@ -132,7 +133,7 @@ class Eventos extends StatelessWidget {
                         'Neste ambiente vibrante, os participantes têm a oportunidade de explorar novas fronteiras de expressão criativa e funcionalidade, enquanto descobrem como a tecnologia está transformando cada aspecto do ciclo de vida da moda, desde o processo de design até a experiência do consumidor. É um momento emocionante para aqueles que buscam inovação e inspiração, onde as barreiras entre o digital e o analógico se desvanecem, dando lugar a uma nova era de possibilidades infinitas.';
 
                     // Transição para tela de eventos
-                    Evento evento = Evento(titulo, descricao);
+                    Evento evento = Evento(titulo, descricao,data);
 
                     Navigator.push(
                         context,
@@ -204,7 +205,7 @@ class Eventos extends StatelessWidget {
                         'Os cursos oferecidos abordam uma ampla gama de temas, desde história da moda e análise de tendências até design de moda sustentável e técnicas de modelagem. As oficinas práticas permitem que os participantes mergulhem nas habilidades técnicas necessárias para criar suas próprias peças únicas, enquanto as palestras trazem insights valiosos de especialistas da indústria e acadêmicos renomados.';
 
                     // Transição para tela de eventos
-                    Evento evento = Evento(titulo, descricao);
+                    Evento evento = Evento(titulo, descricao,data);
 
                     Navigator.push(
                         context,
@@ -276,7 +277,7 @@ class Eventos extends StatelessWidget {
                         'Durante a Casa de Criadores, os participantes têm a oportunidade de testemunhar o surgimento de novas tendências e estilos, além de apoiar o desenvolvimento de uma cena de moda local vibrante e dinâmica. O evento não apenas destaca o talento dos estilistas, mas também promove discussões sobre questões relevantes da indústria da moda brasileira, como sustentabilidade, inclusão e representatividade.';
 
                     // Transição para tela de eventos
-                    Evento evento = Evento(titulo, descricao);
+                    Evento evento = Evento(titulo, descricao,data);
 
                     Navigator.push(
                         context,
