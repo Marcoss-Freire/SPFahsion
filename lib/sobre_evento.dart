@@ -88,7 +88,6 @@ class Sobre extends StatelessWidget{
       GestureDetector( onTap: () {
                   // Voltar para a tela anterior
                 },
-              
               //Calendario 
                 child: Container(width: 380,height: 140,
                   decoration: const BoxDecoration(
@@ -98,7 +97,7 @@ class Sobre extends StatelessWidget{
                     ),
                   ),
                  child:  Padding(padding: EdgeInsets.fromLTRB(150, 60, 60, 0),child: 
-                  Text ( evento.data,
+                  Text ( evento.dataAnterior,
                     style  : TextStyle(
                        fontFamily: 'Glacial',
                           fontSize: 18,
@@ -118,8 +117,8 @@ class Sobre extends StatelessWidget{
                       fit: BoxFit.contain,
                     ),
                   ),
-                 child: const Padding(padding: EdgeInsets.fromLTRB(160, 65, 0, 0),child: 
-                  Text ('Qualquer coisa',
+                 child: Padding(padding: EdgeInsets.fromLTRB(160, 65, 0, 0),child: 
+                  Text ( evento.dataPosterior,
                     style  : TextStyle(
                           fontFamily: 'Glacial',
                           fontSize: 18,

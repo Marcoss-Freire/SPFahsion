@@ -14,7 +14,8 @@ class Menu extends StatelessWidget {
     //variaveis locais para receber o texto
     String titulo = '';
     String descricao = '';
-    String  data= '';
+    String dataAnterior = '';
+    String dataPosterior = '';
 
 
     @override
@@ -82,13 +83,14 @@ class Menu extends StatelessWidget {
                                   const SizedBox(width: 10), // Espaço entre os elementos
                                   GestureDetector(
                                     onTap: () {
-                                      
                                      titulo = 'São Paulo Fashion Week';
-                    descricao = 'A Fashion Week é um momento emocionante na indústria da moda, onde os designers apresentam suas últimas coleções em desfiles extravagantes. É um evento movimentado, cheio de criatividade, estilo e glamour. Modelos desfilam pela passarela, exibindo designs vanguardistas e estabelecendo novas tendências para a próxima temporada. '
-                    'A Fashion Week não se trata apenas de roupas; é uma celebração da arte, inovação e autoexpressão. Da primeira fila aos bastidores, a energia é palpável à medida que entusiastas da moda, celebridades e membros da indústria se reúnem para testemunhar a magia da Fashion Week. É uma época em que o mundo da moda brilha intensamente, inspirando-nos a todos a abraçar o nosso estilo e criatividade únicos.';
+                                      descricao = 'A Fashion Week é um momento emocionante na indústria da moda, onde os designers apresentam suas últimas coleções em desfiles extravagantes. É um evento movimentado, cheio de criatividade, estilo e glamour. Modelos desfilam pela passarela, exibindo designs vanguardistas e estabelecendo novas tendências para a próxima temporada. '
+                                      'A Fashion Week não se trata apenas de roupas; é uma celebração da arte, inovação e autoexpressão. Da primeira fila aos bastidores, a energia é palpável à medida que entusiastas da moda, celebridades e membros da indústria se reúnem para testemunhar a magia da Fashion Week. É uma época em que o mundo da moda brilha intensamente, inspirando-nos a todos a abraçar o nosso estilo e criatividade únicos.';
+                                      dataAnterior = '09 a 14 de abril de 2024';
+                                      dataPosterior = 'A definir';
 
-                    // Transição para tela de eventos
-                    Evento evento =  Evento(titulo, descricao,data);
+                                      // Transição para tela de eventos
+                                      Evento evento =  Evento(titulo, descricao, dataAnterior, dataPosterior);
 
                     Navigator.push(
                     context,
@@ -269,17 +271,20 @@ class Menu extends StatelessWidget {
                                     ),
                                 ]
                             ),
-                            Padding(
-                                padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.10),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(30), // Define o raio dos cantos
-                                  child: SizedBox(
-                                      width: 800,
-                                      child: Image.asset('assets/imgs/imgquiz.png', fit: BoxFit.cover,),
-                                      
-                                  ),
-                                ),
-                            ),
+                            
+                            GestureDetector(
+          onTap: () {}, // Ação ao tocar na imagem
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.10),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(30), // Define o raio dos cantos
+              child: SizedBox(
+                width: 800,
+                child: Image.asset('assets/imgs/imgquiz.png', fit: BoxFit.cover,), // Define a imagem
+              ),
+            ), 
+          ), 
+        ), 
                         ],
                     ),
                 ),
