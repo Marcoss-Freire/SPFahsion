@@ -1,5 +1,5 @@
 # SPfashion - APP
-### Integrantes: Marcos Vinícius Barros Freire e Yasmim Pereira da Costa
+### Integrantes: Marcos Vinícius Barros Freire e Maria Clara Souza de Lima
 
 ## Sobre o aplicativo
 

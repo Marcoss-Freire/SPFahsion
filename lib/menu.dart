@@ -2,7 +2,10 @@ import 'package:aplicacao_spfashion/eventos.dart';
 import 'package:aplicacao_spfashion/eventosClass.dart';
 import 'package:aplicacao_spfashion/sobre_evento.dart';
 import 'package:aplicacao_spfashion/detalhes.dart'; // Adicione a importação da tela Detalhes
+import 'package:aplicacao_spfashion/lookClass.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 void menu() {
   runApp(Menu());
@@ -16,6 +19,8 @@ class Menu extends StatelessWidget {
   String descricao = '';
   String dataAnterior = '';
   String dataPosterior = '';
+  String imagem = '';
+  String link = '';
 
   @override
   Widget build(BuildContext context) {
@@ -172,10 +177,22 @@ class Menu extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () {
+                              descricao = 'O desfile destaca um bloco principal em preto, com combinações como preto e dourado, '
+                              'ternos de veludo preto com listras douradas, e camisas pretas de tule com bordados '
+                              'dourados, seguindo uma silhueta minimalista com sobreposições de elementos da camiseria em cetim.';
+                              imagem = 'assets/imgs/imagem1.png';
+                              link = 'https://br.fashionnetwork.com/galeries/photos/Balmain,54084.html';
+                              // Transição para tela de eventos
+                              Look look =  Look(imagem, descricao, link);
                               Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => Detalhes()), // Navega para a tela Detalhes
-                              );
+  context,
+  MaterialPageRoute(
+    builder: (context) => Detalhes(),
+    settings: RouteSettings(
+      arguments: look, // Passar o objeto Look aqui
+    ),
+  ),
+);
                             },
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(30), // Define o raio dos cantos
@@ -189,6 +206,10 @@ class Menu extends StatelessWidget {
                             padding: const EdgeInsets.only(left: 24.0),
                             child: GestureDetector(
                               onTap: () {
+                                descricao = 'Nos bastidores do desfile Mugler Outono/Inverno 2024/2025 em Paris, a energia é intensa. A equipe trabalha em detalhes finais das peças, que destacam a sensualidade e a força feminina. Modelos usam roupas com silhuetas estruturadas, cinturas marcadas e cortes ousados, mantendo a essência dramática e futurista da marca.'
+                              'Tons escuros, como preto e azul marinho, dominam a paleta, com toques metálicos que trazem modernidade. O cabelo é estilizado de forma gráfica, e a maquiagem carrega um visual intenso, focando nos olhos e lábios para acentuar o poder das criações.';                              imagem = 'assets/imgs/imagem2.png';
+                              imagem = 'assets/imgs/imagem2.png';
+                              link = 'https://br.fashionnetwork.com/galeries/photos/Mugler,54206.html';
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(builder: (context) => Detalhes()), // Navega para a tela Detalhes
@@ -207,6 +228,10 @@ class Menu extends StatelessWidget {
                             padding: const EdgeInsets.only(left: 24.0),
                             child: GestureDetector(
                               onTap: () {
+                                descricao = descricao = 'O desfile da Chloé para a coleção Outono/Inverno 2024/2025 em Paris apresentou uma abordagem moderna e elegante da moda feminina. A marca explorou silhuetas sofisticadas, equilibrando peças estruturadas com elementos fluidos. A paleta de cores girou em torno de tons terrosos, como marrons e verdes, com toques sutis de cores vibrantes para dar contraste.'
+                              'Os tecidos escolhidos variaram entre lã, seda e materiais tecnológicos, trazendo um toque de conforto e contemporaneidade. As camadas e sobreposições foram destaque, conferindo profundidade às peças. Nos detalhes, bordados discretos e acessórios minimalistas, como botas e bolsas estruturadas, complementaram os looks sem tirar o foco das roupas.';
+                              imagem = 'assets/imgs/imagem3.png';
+                              link = 'https://br.fashionnetwork.com/galeries/photos/Chloe,54098.html';
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(builder: (context) => Detalhes()), // Navega para a tela Detalhes
@@ -225,6 +250,9 @@ class Menu extends StatelessWidget {
                             padding: const EdgeInsets.only(left: 24.0),
                             child: GestureDetector(
                               onTap: () {
+                                descricao = 'A coleção outono/inverno 2024 da Hermès destaca uma estética urbana e sofisticada, inspirada na energia das noites de Nova York. As peças são desenhadas para uma mulher cosmopolita, com casacos volumosos e texturizados em tons quentes, como terracota e vermelho, combinados com detalhes mais sutis. A coleção celebra o equilíbrio entre elegância e funcionalidade, incorporando elementos de alfaiataria com um toque moderno, refletindo o clima de uma grande cidade em pleno outono.';
+                              imagem = 'assets/imgs/imagem4.png';
+                              link = 'https://br.fashionnetwork.com/galeries/photos/Chloe,54098.html';
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(builder: (context) => Detalhes()), // Navega para a tela Detalhes
@@ -243,6 +271,9 @@ class Menu extends StatelessWidget {
                             padding: const EdgeInsets.only(left: 24.0),
                             child: GestureDetector(
                               onTap: () {
+                                descricao = 'A coleção primavera/verão 2024 da Burberry traz uma leveza característica, com foco em vestidos fluidos e estampados. O uso de padrões geométricos e uma paleta de cores suaves, como tons de rosa, oferece um visual fresco e elegante, ideal para as estações mais quentes. As peças são desenhadas para mulheres que apreciam a simplicidade com um toque sofisticado, e a coleção reflete um espírito jovial e contemporâneo, mantendo a herança clássica da marca.';
+                              imagem = 'assets/imgs/imagem5.png';
+                              link = 'https://br.fashionnetwork.com/galeries/photos/Burberry,46609.html';
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(builder: (context) => Detalhes()), // Navega para a tela Detalhes
@@ -261,41 +292,7 @@ class Menu extends StatelessWidget {
                       ),
                     ),
                   ),
-              const SizedBox(height: 20),
-              Container(
-                              margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.10,),
-                              child: Align(
-                              alignment: Alignment.centerRight,
-                              child:  SizedBox(
-                                width: 140,
-                                child: MaterialButton(
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                                disabledColor: Colors.grey,
-                                color: const Color.fromARGB(255, 225, 160, 255),
-                               child: Row(
-                                 children:[ Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                                      child: const Text(
-                                        'Vote agora!',
-                                        style: TextStyle(color: Colors.white, fontSize: 20, fontFamily: 'Glacial'),
-                                      ),
-                                  )]
-                              ),
-                              onPressed: () {
-                                 Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder:
-                                    (context) => Menu()),
-                                 );
-                                        },
-                            ),
-                            ),
-                            ),
-                           
-                            ),
-                            
-                          
-                            const SizedBox(height: 20),
+ const SizedBox(height: 20),
                             Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children:[
@@ -303,14 +300,15 @@ class Menu extends StatelessWidget {
                                         padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.1),
                                         child: const Text(
                                             'Você é um expert de moda?',
-                                            style: TextStyle(fontSize: 24, fontFamily: 'Chloe', color: Colors.pinkAccent),
                                         ),
                                     ),
                                 ]
                             ),
                             
                             GestureDetector(
-          onTap: () {}, // Ação ao tocar na imagem
+          onTap: () {
+            _launchURL('https://rachacuca.com.br/quiz/25468/moda-para-quem-conhece/');
+          }, // Ação ao tocar na imagem
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.10),
             child: ClipRRect(
@@ -328,4 +326,11 @@ class Menu extends StatelessWidget {
             ),
         );
     }
+    Future<void> _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 }
